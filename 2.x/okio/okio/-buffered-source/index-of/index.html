@@ -340,14 +340,43 @@
 <h1 id="indexof">indexOf<a class="headerlink" href="#indexof" title="Permanent link">&para;</a></h1>
 <p><code>abstract fun indexOf(b:</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><code>Byte</code></a><code>):</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code>Long</code></a></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
+<p>Equivalent to <a href="./">indexOf(b, 0)</a>.</p>
 <p><code>abstract fun indexOf(b:</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><code>Byte</code></a><code>, fromIndex:</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code>Long</code></a><code>):</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code>Long</code></a></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
+<p>Returns the index of the first <code>b</code> in the buffer at or after <code>fromIndex</code>. This expands the
+buffer as necessary until <code>b</code> is found. This reads an unbounded number of bytes into the
+buffer. Returns -1 if the stream is exhausted before the requested byte is found.</p>
+<div class="codehilite"><pre><span></span>Buffer buffer = new Buffer();
+buffer.writeUtf8(&quot;Don&#39;t move! He can&#39;t see us if we don&#39;t move.&quot;);
+
+byte m = &#39;m&#39;;
+assertEquals(6,  buffer.indexOf(m));
+assertEquals(40, buffer.indexOf(m, 12));
+</pre></div>
+
 <p><code>abstract fun indexOf(b:</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><code>Byte</code></a><code>, fromIndex:</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code>Long</code></a><code>, toIndex:</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code>Long</code></a><code>):</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code>Long</code></a></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
+<p>Returns the index of <code>b</code> if it is found in the range of <code>fromIndex</code> inclusive to <code>toIndex</code>
+exclusive. If <code>b</code> isn&rsquo;t found, or if <code>fromIndex == toIndex</code>, then -1 is returned.</p>
+<p>The scan terminates at either <code>toIndex</code> or the end of the buffer, whichever comes first. The
+maximum number of bytes scanned is <code>toIndex-fromIndex</code>.</p>
 <p><code>abstract fun indexOf(bytes:</code><a href="../../-byte-string/"><code>ByteString</code></a><code>):</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code>Long</code></a></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
+<p>Equivalent to <a href="./">indexOf(bytes, 0)</a>.</p>
 <p><code>abstract fun indexOf(bytes:</code><a href="../../-byte-string/"><code>ByteString</code></a><code>, fromIndex:</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code>Long</code></a><code>):</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code>Long</code></a></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
+<p>Returns the index of the first match for <code>bytes</code> in the buffer at or after <code>fromIndex</code>. This
+expands the buffer as necessary until <code>bytes</code> is found. This reads an unbounded number of
+bytes into the buffer. Returns -1 if the stream is exhausted before the requested bytes are
+found.</p>
+<div class="codehilite"><pre><span></span>ByteString MOVE = ByteString.encodeUtf8(&quot;move&quot;);
+
+Buffer buffer = new Buffer();
+buffer.writeUtf8(&quot;Don&#39;t move! He can&#39;t see us if we don&#39;t move.&quot;);
+
+assertEquals(6,  buffer.indexOf(MOVE));
+assertEquals(40, buffer.indexOf(MOVE, 12));
+</pre></div>
                 
                   
                 

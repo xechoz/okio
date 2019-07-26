@@ -341,20 +341,6 @@
 <p><code>fun readShortLe(): &lt;ERROR CLASS&gt;</code></p>
 <p>Overrides <a href="../../-buffered-source/read-short-le/">BufferedSource.readShortLe</a></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
-<p>Removes two bytes from this source and returns a little-endian short.</p>
-<div class="codehilite"><pre><span></span>Buffer buffer = new Buffer()
-    .writeByte(0xff)
-    .writeByte(0x7f)
-    .writeByte(0x0f)
-    .writeByte(0x00);
-assertEquals(4, buffer.size());
-
-assertEquals(32767, buffer.readShortLe());
-assertEquals(2, buffer.size());
-
-assertEquals(15, buffer.readShortLe());
-assertEquals(0, buffer.size());
-</pre></div>
                 
                   
                 

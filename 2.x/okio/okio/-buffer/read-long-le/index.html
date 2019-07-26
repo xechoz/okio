@@ -341,32 +341,6 @@
 <p><code>fun readLongLe(): &lt;ERROR CLASS&gt;</code></p>
 <p>Overrides <a href="../../-buffered-source/read-long-le/">BufferedSource.readLongLe</a></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
-<p>Removes eight bytes from this source and returns a little-endian long.</p>
-<div class="codehilite"><pre><span></span>Buffer buffer = new Buffer()
-    .writeByte(0xff)
-    .writeByte(0xff)
-    .writeByte(0xff)
-    .writeByte(0xff)
-    .writeByte(0xff)
-    .writeByte(0xff)
-    .writeByte(0xff)
-    .writeByte(0x7f)
-    .writeByte(0x0f)
-    .writeByte(0x00)
-    .writeByte(0x00)
-    .writeByte(0x00)
-    .writeByte(0x00)
-    .writeByte(0x00)
-    .writeByte(0x00)
-    .writeByte(0x00);
-assertEquals(16, buffer.size());
-
-assertEquals(9223372036854775807L, buffer.readLongLe());
-assertEquals(8, buffer.size());
-
-assertEquals(15, buffer.readLongLe());
-assertEquals(0, buffer.size());
-</pre></div>
                 
                   
                 

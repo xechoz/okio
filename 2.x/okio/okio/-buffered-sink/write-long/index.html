@@ -340,6 +340,30 @@
 <h1 id="writelong">writeLong<a class="headerlink" href="#writelong" title="Permanent link">&para;</a></h1>
 <p><code>abstract fun writeLong(v:</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code>Long</code></a><code>):</code><a href="../"><code>BufferedSink</code></a></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
+<p>Writes a big-endian long to this sink using eight bytes.</p>
+<div class="codehilite"><pre><span></span>Buffer buffer = new Buffer();
+buffer.writeLong(9223372036854775807L);
+buffer.writeLong(15);
+
+assertEquals(16, buffer.size());
+assertEquals((byte) 0x7f, buffer.readByte());
+assertEquals((byte) 0xff, buffer.readByte());
+assertEquals((byte) 0xff, buffer.readByte());
+assertEquals((byte) 0xff, buffer.readByte());
+assertEquals((byte) 0xff, buffer.readByte());
+assertEquals((byte) 0xff, buffer.readByte());
+assertEquals((byte) 0xff, buffer.readByte());
+assertEquals((byte) 0xff, buffer.readByte());
+assertEquals((byte) 0x00, buffer.readByte());
+assertEquals((byte) 0x00, buffer.readByte());
+assertEquals((byte) 0x00, buffer.readByte());
+assertEquals((byte) 0x00, buffer.readByte());
+assertEquals((byte) 0x00, buffer.readByte());
+assertEquals((byte) 0x00, buffer.readByte());
+assertEquals((byte) 0x00, buffer.readByte());
+assertEquals((byte) 0x0f, buffer.readByte());
+assertEquals(0, buffer.size());
+</pre></div>
                 
                   
                 

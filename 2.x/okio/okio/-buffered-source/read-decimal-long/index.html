@@ -323,6 +323,22 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exceptions" title="Exceptions" class="md-nav__link">
+    Exceptions
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -340,6 +356,21 @@
 <h1 id="readdecimallong">readDecimalLong<a class="headerlink" href="#readdecimallong" title="Permanent link">&para;</a></h1>
 <p><code>abstract fun readDecimalLong():</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code>Long</code></a></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
+<p>Reads a long from this source in signed decimal form (i.e., as a string in base 10 with
+optional leading &lsquo;-&lsquo;). This will iterate until a non-digit character is found.</p>
+<div class="codehilite"><pre><span></span>Buffer buffer = new Buffer()
+    .writeUtf8(&quot;8675309 -123 00001&quot;);
+
+assertEquals(8675309L, buffer.readDecimalLong());
+assertEquals(&#39; &#39;, buffer.readByte());
+assertEquals(-123L, buffer.readDecimalLong());
+assertEquals(&#39; &#39;, buffer.readByte());
+assertEquals(1L, buffer.readDecimalLong());
+</pre></div>
+
+<h3 id="exceptions">Exceptions<a class="headerlink" href="#exceptions" title="Permanent link">&para;</a></h3>
+<p><code>NumberFormatException</code> - if the found digits do not fit into a <code>long</code> or a decimal
+number was not present.</p>
                 
                   
                 

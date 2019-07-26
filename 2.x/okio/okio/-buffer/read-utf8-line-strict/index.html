@@ -341,31 +341,9 @@
 <p><code>fun readUtf8LineStrict():</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><code>String</code></a></p>
 <p>Overrides <a href="../../-buffered-source/read-utf8-line-strict/">BufferedSource.readUtf8LineStrict</a></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
-<p>Removes and returns characters up to but not including the next line break. A line break is
-either <code>"\n"</code> or <code>"\r\n"</code>; these characters are not included in the result.</p>
-<p><strong>On the end of the stream this method throws.</strong> Every call must consume either
-&lsquo;\r\n&rsquo; or &lsquo;\n&rsquo;. If these characters are absent in the stream, an <a href="https://docs.oracle.com/javase/8/docs/api/java/io/EOFException.html">java.io.EOFException</a>
-is thrown. Use this for machine-generated data where a missing line break implies truncated
-input.</p>
 <p><code>fun readUtf8LineStrict(limit:</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code>Long</code></a><code>):</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><code>String</code></a></p>
 <p>Overrides <a href="../../-buffered-source/read-utf8-line-strict/">BufferedSource.readUtf8LineStrict</a></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
-<p>Like <a href="../../-buffered-source/read-utf8-line-strict/">readUtf8LineStrict</a>, except this allows the caller to specify the longest allowed match.
-Use this to protect against streams that may not include <code>"\n"</code> or <code>"\r\n"</code>.</p>
-<p>The returned string will have at most <code>limit</code> UTF-8 bytes, and the maximum number of bytes
-scanned is <code>limit + 2</code>. If <code>limit == 0</code> this will always throw an <code>EOFException</code> because no
-bytes will be scanned.</p>
-<p>This method is safe. No bytes are discarded if the match fails, and the caller is free to try
-another match:</p>
-<div class="codehilite"><pre><span></span>Buffer buffer = new Buffer();
-buffer.writeUtf8(&quot;12345\r\n&quot;);
-
-// This will throw! There must be \r\n or \n at the limit or before it.
-buffer.readUtf8LineStrict(4);
-
-// No bytes have been consumed so the caller can retry.
-assertEquals(&quot;12345&quot;, buffer.readUtf8LineStrict(5));
-</pre></div>
                 
                   
                 

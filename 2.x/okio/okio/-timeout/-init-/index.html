@@ -323,22 +323,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#timeouts-and-deadlines" title="Timeouts and Deadlines" class="md-nav__link">
-    Timeouts and Deadlines
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -356,18 +340,6 @@
 <h1 id="init">&lt;init&gt;<a class="headerlink" href="#init" title="Permanent link">&para;</a></h1>
 <p><code>Timeout()</code></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
-<p>A policy on how much time to spend on a task before giving up. When a task times out, it is left
-in an unspecified state and should be abandoned. For example, if reading from a source times out,
-that source should be closed and the read should be retried later. If writing to a sink times
-out, the same rules apply: close the sink and retry later.</p>
-<h3 id="timeouts-and-deadlines">Timeouts and Deadlines<a class="headerlink" href="#timeouts-and-deadlines" title="Permanent link">&para;</a></h3>
-<p>This class offers two complementary controls to define a timeout policy.</p>
-<p><strong>Timeouts</strong> specify the maximum time to wait for a single operation to complete. Timeouts are
-typically used to detect problems like network partitions. For example, if a remote peer doesn&rsquo;t
-return <em>any</em> data for ten seconds, we may assume that the peer is unavailable.</p>
-<p><strong>Deadlines</strong> specify the maximum time to spend on a job, composed of one or more operations. Use
-deadlines to set an upper bound on the time invested on a job. For example, a battery-conscious
-app may limit how much time it spends pre-loading content.</p>
                 
                   
                 

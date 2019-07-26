@@ -485,15 +485,15 @@
 </tr>
 <tr>
 <td><a href="-buffer/">Buffer</a><br>(JVM, js, native)</td>
-<td><code>expect class Buffer :</code><a href="-buffered-source/"><code>BufferedSource</code></a><code>,</code><a href="-buffered-sink/"><code>BufferedSink</code></a></td>
+<td><code>expect class Buffer :</code><a href="-buffered-source/"><code>BufferedSource</code></a><code>,</code><a href="-buffered-sink/"><code>BufferedSink</code></a><br>A collection of bytes in memory.</td>
 </tr>
 <tr>
 <td><a href="-buffered-sink/">BufferedSink</a><br>(JVM, js, native)</td>
-<td><code>expect interface BufferedSink :</code><a href="-sink/"><code>Sink</code></a></td>
+<td><code>expect interface BufferedSink :</code><a href="-sink/"><code>Sink</code></a><br>A sink that keeps a buffer internally so that callers can do small writes without a performance penalty.</td>
 </tr>
 <tr>
 <td><a href="-buffered-source/">BufferedSource</a><br>(JVM, js, native)</td>
-<td><code>expect interface BufferedSource :</code><a href="-source/"><code>Source</code></a></td>
+<td><code>expect interface BufferedSource :</code><a href="-source/"><code>Source</code></a><br>A source that keeps a buffer internally so that callers can do small reads without a performance penalty. It also allows clients to read ahead, buffering as much as necessary before consuming input.</td>
 </tr>
 <tr>
 <td><a href="-byte-string/">ByteString</a><br>(JVM, js, native)</td>
@@ -545,11 +545,11 @@
 </tr>
 <tr>
 <td><a href="-sink/">Sink</a><br>(JVM, js, native)</td>
-<td><code>expect interface Sink</code></td>
+<td><code>expect interface Sink</code><br>Receives a stream of bytes. Use this interface to write data wherever it&rsquo;s needed: to the network, storage, or a buffer in memory. Sinks may be layered to transform received data, such as to compress, encrypt, throttle, or add protocol framing.</td>
 </tr>
 <tr>
 <td><a href="-source/">Source</a><br>(JVM, js, native)</td>
-<td><code>expect interface Source</code></td>
+<td><code>expect interface Source</code><br>Supplies a stream of bytes. Use this interface to read data from wherever it&rsquo;s located: from the network, storage, or a buffer in memory. Sources may be layered to transform supplied data, such as to decompress, decrypt, or remove protocol framing.</td>
 </tr>
 <tr>
 <td><a href="-throttler/">Throttler</a><br>(JVM)</td>
@@ -557,7 +557,7 @@
 </tr>
 <tr>
 <td><a href="-timeout/">Timeout</a><br>(JVM, js, native)</td>
-<td><code>open expect class Timeout</code></td>
+<td><code>open expect class Timeout</code><br>A policy on how much time to spend on a task before giving up. When a task times out, it is left in an unspecified state and should be abandoned. For example, if reading from a source times out, that source should be closed and the read should be retried later. If writing to a sink times out, the same rules apply: close the sink and retry later.</td>
 </tr>
 </tbody>
 </table>

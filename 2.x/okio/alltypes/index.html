@@ -371,15 +371,15 @@
 </tr>
 <tr>
 <td><a href="../okio/-buffer/">okio.Buffer</a></td>
-<td></td>
+<td>A collection of bytes in memory.</td>
 </tr>
 <tr>
 <td><a href="../okio/-buffered-sink/">okio.BufferedSink</a></td>
-<td></td>
+<td>A sink that keeps a buffer internally so that callers can do small writes without a performance penalty.</td>
 </tr>
 <tr>
 <td><a href="../okio/-buffered-source/">okio.BufferedSource</a></td>
-<td></td>
+<td>A source that keeps a buffer internally so that callers can do small reads without a performance penalty. It also allows clients to read ahead, buffering as much as necessary before consuming input.</td>
 </tr>
 <tr>
 <td><a href="../okio/-byte-string/">okio.ByteString</a></td>
@@ -455,7 +455,7 @@
 </tr>
 <tr>
 <td><a href="../okio/-sink/">okio.Sink</a></td>
-<td></td>
+<td>Receives a stream of bytes. Use this interface to write data wherever it&rsquo;s needed: to the network, storage, or a buffer in memory. Sinks may be layered to transform received data, such as to compress, encrypt, throttle, or add protocol framing.</td>
 </tr>
 <tr>
 <td><a href="../okio/java.net.-socket/">java.net.Socket</a> (extensions in package okio)</td>
@@ -463,7 +463,7 @@
 </tr>
 <tr>
 <td><a href="../okio/-source/">okio.Source</a></td>
-<td></td>
+<td>Supplies a stream of bytes. Use this interface to read data from wherever it&rsquo;s located: from the network, storage, or a buffer in memory. Sources may be layered to transform supplied data, such as to decompress, decrypt, or remove protocol framing.</td>
 </tr>
 <tr>
 <td><a href="../okio/kotlin.-string/">kotlin.String</a> (extensions in package okio)</td>
@@ -475,7 +475,7 @@
 </tr>
 <tr>
 <td><a href="../okio/-timeout/">okio.Timeout</a></td>
-<td></td>
+<td>A policy on how much time to spend on a task before giving up. When a task times out, it is left in an unspecified state and should be abandoned. For example, if reading from a source times out, that source should be closed and the read should be retried later. If writing to a sink times out, the same rules apply: close the sink and retry later.</td>
 </tr>
 </tbody>
 </table>

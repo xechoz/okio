@@ -327,6 +327,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#timeouts-and-deadlines" title="Timeouts and Deadlines" class="md-nav__link">
+    Timeouts and Deadlines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#constructors" title="Constructors" class="md-nav__link">
     Constructors
   </a>
@@ -384,6 +391,18 @@
 <h1 id="timeout">Timeout<a class="headerlink" href="#timeout" title="Permanent link">&para;</a></h1>
 <p><code>open expect class Timeout</code></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
+<p>A policy on how much time to spend on a task before giving up. When a task times out, it is left
+in an unspecified state and should be abandoned. For example, if reading from a source times out,
+that source should be closed and the read should be retried later. If writing to a sink times
+out, the same rules apply: close the sink and retry later.</p>
+<h3 id="timeouts-and-deadlines">Timeouts and Deadlines<a class="headerlink" href="#timeouts-and-deadlines" title="Permanent link">&para;</a></h3>
+<p>This class offers two complementary controls to define a timeout policy.</p>
+<p><strong>Timeouts</strong> specify the maximum time to wait for a single operation to complete. Timeouts are
+typically used to detect problems like network partitions. For example, if a remote peer doesn&rsquo;t
+return <em>any</em> data for ten seconds, we may assume that the peer is unavailable.</p>
+<p><strong>Deadlines</strong> specify the maximum time to spend on a job, composed of one or more operations. Use
+deadlines to set an upper bound on the time invested on a job. For example, a battery-conscious
+app may limit how much time it spends pre-loading content.</p>
 <h3 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -395,7 +414,7 @@
 <tbody>
 <tr>
 <td><a href="-init-/">&lt;init&gt;</a></td>
-<td><code>Timeout()</code><br>A policy on how much time to spend on a task before giving up. When a task times out, it is left in an unspecified state and should be abandoned. For example, if reading from a source times out, that source should be closed and the read should be retried later. If writing to a sink times out, the same rules apply: close the sink and retry later.</td>
+<td><code>Timeout()</code></td>
 </tr>
 </tbody>
 </table>
@@ -461,7 +480,7 @@
 <tbody>
 <tr>
 <td><a href="-n-o-n-e/">NONE</a></td>
-<td><code>val NONE:</code><a href="./"><code>Timeout</code></a></td>
+<td><code>val NONE:</code><a href="./"><code>Timeout</code></a><br>An empty timeout that neither tracks nor detects timeouts. Use this when timeouts aren&rsquo;t necessary, such as in implementations whose operations do not block.</td>
 </tr>
 </tbody>
 </table>

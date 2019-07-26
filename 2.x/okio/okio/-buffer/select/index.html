@@ -341,27 +341,6 @@
 <p><code>fun select(options: &lt;ERROR CLASS&gt;):</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><code>Int</code></a></p>
 <p>Overrides <a href="../../-buffered-source/select/">BufferedSource.select</a></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
-<p>Finds the first string in <code>options</code> that is a prefix of this buffer, consumes it from this
-buffer, and returns its index. If no byte string in <code>options</code> is a prefix of this buffer this
-returns -1 and no bytes are consumed.</p>
-<p>This can be used as an alternative to <a href="../../-buffered-source/read-byte-string/">readByteString</a> or even <a href="../../-buffered-source/read-utf8/">readUtf8</a> if the set of
-expected values is known in advance.</p>
-<div class="codehilite"><pre><span></span>Options FIELDS = Options.of(
-    ByteString.encodeUtf8(&quot;depth=&quot;),
-    ByteString.encodeUtf8(&quot;height=&quot;),
-    ByteString.encodeUtf8(&quot;width=&quot;));
-
-Buffer buffer = new Buffer()
-    .writeUtf8(&quot;width=640\n&quot;)
-    .writeUtf8(&quot;height=480\n&quot;);
-
-assertEquals(2, buffer.select(FIELDS));
-assertEquals(640, buffer.readDecimalLong());
-assertEquals(&#39;\n&#39;, buffer.readByte());
-assertEquals(1, buffer.select(FIELDS));
-assertEquals(480, buffer.readDecimalLong());
-assertEquals(&#39;\n&#39;, buffer.readByte());
-</pre></div>
                 
                   
                 

@@ -327,6 +327,20 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#comparison-with-outputstream" title="Comparison with OutputStream" class="md-nav__link">
+    Comparison with OutputStream
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interop-with-outputstream" title="Interop with OutputStream" class="md-nav__link">
+    Interop with OutputStream
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#functions" title="Functions" class="md-nav__link">
     Functions
   </a>
@@ -370,6 +384,23 @@
 <h1 id="sink">Sink<a class="headerlink" href="#sink" title="Permanent link">&para;</a></h1>
 <p><code>expect interface Sink</code></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
+<p>Receives a stream of bytes. Use this interface to write data wherever it&rsquo;s needed: to the
+network, storage, or a buffer in memory. Sinks may be layered to transform received data, such as
+to compress, encrypt, throttle, or add protocol framing.</p>
+<p>Most application code shouldn&rsquo;t operate on a sink directly, but rather on a <a href="../-buffered-sink/">BufferedSink</a> which
+is both more efficient and more convenient. Use <a href="../buffer/">buffer</a> to wrap any sink with a buffer.</p>
+<p>Sinks are easy to test: just use a <a href="../-buffer/">Buffer</a> in your tests, and read from it to confirm it
+received the data that was expected.</p>
+<h3 id="comparison-with-outputstream">Comparison with OutputStream<a class="headerlink" href="#comparison-with-outputstream" title="Permanent link">&para;</a></h3>
+<p>This interface is functionally equivalent to <a href="https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html">java.io.OutputStream</a>.</p>
+<p><code>OutputStream</code> requires multiple layers when emitted data is heterogeneous: a <code>DataOutputStream</code>
+for primitive values, a <code>BufferedOutputStream</code> for buffering, and <code>OutputStreamWriter</code> for
+charset encoding. This library uses <code>BufferedSink</code> for all of the above.</p>
+<p>Sink is also easier to layer: there is no <a href="https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html#write(int)">write()</a> method that is
+awkward to implement efficiently.</p>
+<h3 id="interop-with-outputstream">Interop with OutputStream<a class="headerlink" href="#interop-with-outputstream" title="Permanent link">&para;</a></h3>
+<p>Use <a href="#">sink</a> to adapt an <code>OutputStream</code> to a sink. Use <a href="#">outputStream()</a>
+to adapt a sink to an <code>OutputStream</code>.</p>
 <h3 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -381,19 +412,19 @@
 <tbody>
 <tr>
 <td><a href="close/">close</a></td>
-<td><code>abstract fun close():</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><code>Unit</code></a></td>
+<td><code>abstract fun close():</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><code>Unit</code></a><br>Pushes all buffered bytes to their final destination and releases the resources held by this sink. It is an error to write a closed sink. It is safe to close a sink more than once.</td>
 </tr>
 <tr>
 <td><a href="flush/">flush</a></td>
-<td><code>abstract fun flush():</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><code>Unit</code></a></td>
+<td><code>abstract fun flush():</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><code>Unit</code></a><br>Pushes all buffered bytes to their final destination.</td>
 </tr>
 <tr>
 <td><a href="timeout/">timeout</a></td>
-<td><code>abstract fun timeout():</code><a href="../-timeout/"><code>Timeout</code></a></td>
+<td><code>abstract fun timeout():</code><a href="../-timeout/"><code>Timeout</code></a><br>Returns the timeout for this sink.</td>
 </tr>
 <tr>
 <td><a href="write/">write</a></td>
-<td><code>abstract fun write(source:</code><a href="../-buffer/"><code>Buffer</code></a><code>, byteCount:</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code>Long</code></a><code>):</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><code>Unit</code></a></td>
+<td><code>abstract fun write(source:</code><a href="../-buffer/"><code>Buffer</code></a><code>, byteCount:</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code>Long</code></a><code>):</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><code>Unit</code></a><br>Removes <code>byteCount</code> bytes from <code>source</code> and appends them to this.</td>
 </tr>
 </tbody>
 </table>
@@ -431,7 +462,7 @@
 <tbody>
 <tr>
 <td><a href="../-buffered-sink/">BufferedSink</a><br>(JVM, js, native)</td>
-<td><code>expect interface BufferedSink :</code><a href="./"><code>Sink</code></a></td>
+<td><code>expect interface BufferedSink :</code><a href="./"><code>Sink</code></a><br>A sink that keeps a buffer internally so that callers can do small writes without a performance penalty.</td>
 </tr>
 <tr>
 <td><a href="../-deflater-sink/">DeflaterSink</a><br>(JVM)</td>

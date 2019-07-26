@@ -338,8 +338,7 @@
                 
                 <p><a href="../../../">okio</a> / <a href="../../">okio</a> / <a href="../">BufferedSource</a> / <a href="./">select</a></p>
 <h1 id="select">select<a class="headerlink" href="#select" title="Permanent link">&para;</a></h1>
-<p><code>abstract fun select(options:</code><a href="../../-options/"><code>Options</code></a><code>):</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><code>Int</code></a><code>abstract actual fun select(options: &lt;ERROR CLASS&gt;):</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><code>Int</code></a></p>
-<p><strong>Platform and version requirements:</strong> JVM, js, native</p>
+<p><code>abstract fun select(options:</code><a href="../../-options/"><code>Options</code></a><code>):</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><code>Int</code></a></p>
 <p>Finds the first string in <code>options</code> that is a prefix of this buffer, consumes it from this
 buffer, and returns its index. If no byte string in <code>options</code> is a prefix of this buffer this
 returns -1 and no bytes are consumed.</p>
@@ -361,6 +360,9 @@ assertEquals(1, buffer.select(FIELDS));
 assertEquals(480, buffer.readDecimalLong());
 assertEquals(&#39;\n&#39;, buffer.readByte());
 </pre></div>
+
+<p><code>abstract actual fun select(options: &lt;ERROR CLASS&gt;):</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><code>Int</code></a></p>
+<p><strong>Platform and version requirements:</strong> JVM, js, native</p>
                 
                   
                 

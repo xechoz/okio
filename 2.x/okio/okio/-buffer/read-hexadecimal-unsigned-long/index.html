@@ -323,22 +323,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#exceptions" title="Exceptions" class="md-nav__link">
-    Exceptions
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -357,21 +341,6 @@
 <p><code>fun readHexadecimalUnsignedLong():</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code>Long</code></a></p>
 <p>Overrides <a href="../../-buffered-source/read-hexadecimal-unsigned-long/">BufferedSource.readHexadecimalUnsignedLong</a></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
-<p>Reads a long form this source in hexadecimal form (i.e., as a string in base 16). This will
-iterate until a non-hexadecimal character is found.</p>
-<div class="codehilite"><pre><span></span>Buffer buffer = new Buffer()
-    .writeUtf8(&quot;ffff CAFEBABE 10&quot;);
-
-assertEquals(65535L, buffer.readHexadecimalUnsignedLong());
-assertEquals(&#39; &#39;, buffer.readByte());
-assertEquals(0xcafebabeL, buffer.readHexadecimalUnsignedLong());
-assertEquals(&#39; &#39;, buffer.readByte());
-assertEquals(0x10L, buffer.readHexadecimalUnsignedLong());
-</pre></div>
-
-<h3 id="exceptions">Exceptions<a class="headerlink" href="#exceptions" title="Permanent link">&para;</a></h3>
-<p><code>NumberFormatException</code> - if the found hexadecimal does not fit into a <code>long</code> or
-hexadecimal was not found.</p>
                 
                   
                 

@@ -341,39 +341,9 @@
 <p><code>fun readUtf8():</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><code>String</code></a></p>
 <p>Overrides <a href="../../-buffered-source/read-utf8/">BufferedSource.readUtf8</a></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
-<p>Removes all bytes from this, decodes them as UTF-8, and returns the string. Returns the empty
-string if this source is empty.</p>
-<div class="codehilite"><pre><span></span>Buffer buffer = new Buffer()
-    .writeUtf8(&quot;Uh uh uh!&quot;)
-    .writeByte(&#39; &#39;)
-    .writeUtf8(&quot;You didn&#39;t say the magic word!&quot;);
-
-assertEquals(&quot;Uh uh uh! You didn&#39;t say the magic word!&quot;, buffer.readUtf8());
-assertEquals(0, buffer.size());
-
-assertEquals(&quot;&quot;, buffer.readUtf8());
-assertEquals(0, buffer.size());
-</pre></div>
-
 <p><code>fun readUtf8(byteCount:</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><code>Long</code></a><code>):</code><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><code>String</code></a></p>
 <p>Overrides <a href="../../-buffered-source/read-utf8/">BufferedSource.readUtf8</a></p>
 <p><strong>Platform and version requirements:</strong> JVM, js, native</p>
-<p>Removes <code>byteCount</code> bytes from this, decodes them as UTF-8, and returns the string.</p>
-<div class="codehilite"><pre><span></span>Buffer buffer = new Buffer()
-    .writeUtf8(&quot;Uh uh uh!&quot;)
-    .writeByte(&#39; &#39;)
-    .writeUtf8(&quot;You didn&#39;t say the magic word!&quot;);
-assertEquals(40, buffer.size());
-
-assertEquals(&quot;Uh uh uh! You &quot;, buffer.readUtf8(14));
-assertEquals(26, buffer.size());
-
-assertEquals(&quot;didn&#39;t say the&quot;, buffer.readUtf8(14));
-assertEquals(12, buffer.size());
-
-assertEquals(&quot; magic word!&quot;, buffer.readUtf8(12));
-assertEquals(0, buffer.size());
-</pre></div>
                 
                   
                 
