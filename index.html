@@ -338,8 +338,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#download" title="Download" class="md-nav__link">
-    Download
+  <a href="#releases" title="Releases" class="md-nav__link">
+    Releases
   </a>
   
 </li>
@@ -545,8 +545,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#download" title="Download" class="md-nav__link">
-    Download
+  <a href="#releases" title="Releases" class="md-nav__link">
+    Releases
   </a>
   
 </li>
@@ -1293,18 +1293,12 @@ System.out.println(&quot;hmacSha256: &quot; + byteString.hmacSha256(secret).hex(
 <p>As with hashing, you can generate an HMAC from a <code>ByteString</code>, <code>Buffer</code>, <code>HashingSource</code>, and
 <code>HashingSink</code>. Note that Okio doesn’t implement HMAC for MD5. Okio uses Java’s
 <code>java.security.MessageDigest</code> for cryptographic hashes and <code>javax.crypto.Mac</code> for HMAC.</p>
-<h2 id="download">Download<a class="headerlink" href="#download" title="Permanent link">&para;</a></h2>
-<p>Download <a href="https://search.maven.org/remote_content?g=com.squareup.okio&amp;a=okio&amp;v=LATEST">the latest JAR</a> or grab via Maven:
-<div class="codehilite"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>com.squareup.okio<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>okio<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>2.2.2<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
+<h2 id="releases">Releases<a class="headerlink" href="#releases" title="Permanent link">&para;</a></h2>
+<p>Our <a href="http://square.github.io/okio/changelog/">change log</a> has release history.</p>
+<div class="codehilite"><pre><span></span><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;com.squareup.okio:okio:2.3.0&quot;</span><span class="p">)</span>
 </pre></div>
-or Gradle:
-<div class="codehilite"><pre><span></span><span class="n">compile</span> <span class="s1">&#39;com.squareup.okio:okio:2.2.2&#39;</span>
-</pre></div></p>
-<p>Snapshots of the development version are available in <a href="https://oss.sonatype.org/content/repositories/snapshots/">Sonatype&rsquo;s <code>snapshots</code> repository</a>.</p>
+
+<p>Snapshot builds are <a href="https://oss.sonatype.org/content/repositories/snapshots/">available</a>.</p>
 <h2 id="r8-proguard">R8 / ProGuard<a class="headerlink" href="#r8-proguard" title="Permanent link">&para;</a></h2>
 <p>If you are using R8 or ProGuard add the options from <a href="https://github.com/square/okio/blob/master/okio/src/jvmMain/resources/META-INF/proguard/okio.pro">this file</a>.</p>
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>

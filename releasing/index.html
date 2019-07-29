@@ -372,7 +372,7 @@ export NEXT_VERSION=X.Y.Z-SNAPSHOT
 sed -i &quot;&quot; \
   &quot;s/\&quot;com.squareup.okio:\([^\:]*\):[^\&quot;]*\&quot;/\&quot;com.squareup.okio:\1:$RELEASE_VERSION\&quot;/g&quot; \
   `find . -name &quot;README.md&quot;`
-./gradlew clean uploadArchives
+./gradlew clean publish
 </pre></div>
 
 </li>

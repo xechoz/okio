@@ -303,6 +303,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#version-230" title="Version 2.3.0" class="md-nav__link">
+    Version 2.3.0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#version-1174" title="Version 1.17.4" class="md-nav__link">
     Version 1.17.4
   </a>
@@ -603,6 +610,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#version-230" title="Version 2.3.0" class="md-nav__link">
+    Version 2.3.0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#version-1174" title="Version 1.17.4" class="md-nav__link">
     Version 1.17.4
   </a>
@@ -867,6 +881,25 @@
                 
                 
                 <h1 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h1>
+<h3 id="version-230">Version 2.3.0<a class="headerlink" href="#version-230" title="Permanent link">&para;</a></h3>
+<p><em>2019-07-29</em></p>
+<p><strong>This release changes our build from Kotlin-JVM to Kotlin-multiplatform (which includes JVM).</strong>
+Both native and JavaScript platforms are unstable preview releases and subject to
+backwards-incompatible changes in forthcoming releases.</p>
+<p>To try Okio in a multiplatform project use this Maven coordinate:</p>
+<div class="codehilite"><pre><span></span>```kotlin
+api(&#39;com.squareup.okio:okio-multiplatform:2.3.0&#39;)
+```
+</pre></div>
+
+
+<p>You’ll also need to <a href="https://blog.gradle.org/gradle-metadata-1.0">enable Gradle metadata</a> in your project&rsquo;s settings. The
+artifact name for JVM projects has not changed.</p>
+<ul>
+<li>New: Upgrade to Kotlin 1.3.40.</li>
+<li>Fix: Use Gradle <code>api</code> instead of <code>implementation</code> for the kotlin-stdlib dependency.</li>
+<li>Fix: Don&rsquo;t block unless strictly necessary in <code>BufferedSource.peek()</code>.</li>
+</ul>
 <h2 id="version-1174">Version 1.17.4<a class="headerlink" href="#version-1174" title="Permanent link">&para;</a></h2>
 <p><em>2019-04-29</em></p>
 <ul>
